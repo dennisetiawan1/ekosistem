@@ -1,0 +1,136 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #005e6a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container,
+.register-container {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-container h2,
+.register-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #005e6a;
+}
+
+.login-form,
+.register-form {
+  display: flex;
+  row-gap: 12px;
+  flex-direction: column;
+}
+
+.login-form label,
+.register-form label {
+  color: #333;
+}
+
+.login-form input,
+.login-form select,
+.register-form input,
+.register-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.login-form input:focus,
+.login-form select:focus,
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #f15a23;
+}
+
+.login-form button,
+.register-form button {
+  padding: 12px;
+  background-color: #f15a23;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover,
+.register-form button:hover {
+  background-color: #d3572a;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  animation: fadeOut 0.5s ease-out 4s forwards;
+}
+
+.login-link {
+  margin-top: 6px;
+}
+a {
+  text-decoration: none;
+  margin-right: 4px;
+  font-size: 15px;
+  color:#005e6a;
+}
+
+.error-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 0, 0, 0.842);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  animation: fadeInDown 0.5s ease, fadeOut 0.5s ease 4s;
+  z-index: 9999;
+}
+
+.success-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e0ffe0;
+  border: 1px solid #4caf50;
+  color: #006400;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,36 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /BNI%20v12/
+
+    # Izinkan akses langsung ke file aset (css, js, gambar)
+    RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|svg|ico)$ [NC]
+    RewriteRule ^ - [L]
+
+    # Rules untuk routing halaman (sebelumnya)
+    RewriteRule ^dashboard$ dashboard.php [L]
+    RewriteRule ^form/perorangan$ form_perorangan.php [L]
+    RewriteRule ^form/perusahaan$ form_perusahaan.php [L]
+    RewriteRule ^edit/perorangan/([0-9]+)$ form_edit_perorangan.php?id=$1 [L]
+    RewriteRule ^edit/perusahaan/([0-9]+)$ form_edit_perusahaan.php?id=$1 [L]
+    RewriteRule ^informasi/perorangan$ informasi_perorangan.php [L]
+    RewriteRule ^informasi/perusahaan$ informasi_perusahaan.php [L]
+    RewriteRule ^ekosistem/([0-9]+)/([a-z]+)$ ekosistem.php?id=$1&jenis=$2 [L]
+    RewriteRule ^detail/([a-z]+)/([0-9]+)$ detail.php?jenis=$1&id=$2 [L]
+    RewriteRule ^hapus/perorangan/([0-9]+)$ hapus_perorangan.php?id=$1 [L]
+    RewriteRule ^hapus/perusahaan/([0-9]+)$ hapus_perusahaan.php?id=$1 [L]
+    RewriteRule ^cari/nasabah$ cari_nasabah.php [QSA,L]
+    RewriteRule ^cari/perusahaan$ cari_perusahaan.php [QSA,L]
+    RewriteRule ^login$ login.php [L]
+    RewriteRule ^daftar$ daftar.php [L]
+    RewriteRule ^auth$ auth.php [L]
+    RewriteRule ^logout$ logout.php [L]
+    RewriteRule ^ubah-password$ ubah_password.php [L]
+    RewriteRule ^ubah-password-c$ ubah_password_cont.php [L]
+    RewriteRule ^simpan/perorangan$ simpan_perorangan.php [L]
+    RewriteRule ^simpan/perusahaan$ simpan_perusahaan.php [L]
+
+    # Hapus ekstensi .php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.*)$ $1.php [L]
+</IfModule>
